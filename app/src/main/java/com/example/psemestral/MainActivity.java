@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
+import android.widget.RadioButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -14,11 +15,13 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     String grabar;
+    Intent intent1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //grabar = findViewById(R.id.texto);
+        intent1 = new Intent(getApplicationContext(), Pasos.class);
     }
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     @Override
@@ -47,6 +50,22 @@ public class MainActivity extends AppCompatActivity {
             startActivityForResult(intentActionRecognizeSpeech, RECOGNIZE_SPEECH_ACTIVITY);
         } catch (ActivityNotFoundException a){
             Toast.makeText(this, "Tu dispositivo no soporta el reconocimiento por voz", Toast.LENGTH_SHORT).show();
+        }
+    }
+
+    public void Activar (View view){
+        RadioButton rb1 = findViewById(R.id.rb1CP);
+        RadioButton rb2 = findViewById(R.id.rb2Px);
+        RadioButton rb3 = findViewById(R.id.rb3);
+        if(rb1.isChecked()){
+            Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
+            startActivity(intent1);
+        }
+        else if(rb2.isChecked()){
+
+        }
+        else {
+
         }
     }
 }
