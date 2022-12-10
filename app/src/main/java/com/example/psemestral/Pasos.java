@@ -9,6 +9,7 @@ import android.content.pm.PackageManager;
 import android.os.Build;
 import android.os.Bundle;
 import android.hardware.Sensor;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.view.WindowManager;
 import android.hardware.SensorEvent;
@@ -22,6 +23,7 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
     private SensorManager sensorManager;
     private Sensor mStepCounter;
     private boolean isCounterSensorPresent;
+    private ProgressBar pb;
     int stepCount=0;
 
 
@@ -54,8 +56,10 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
             textViewStepCounter.setText("El sensor del contador no está presente");
             isCounterSensorPresent=false;
         }
+    pb=findViewById(R.id.pb);
 
-
+        pb.setMin(0);
+//----- fin del main
     }
 
     @Override
