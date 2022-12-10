@@ -21,11 +21,11 @@
         app:layout_constraintVertical_bias="0.102" />
 
     <TextView
-        android:id="@+id/textViewStepCounter2"
+        android:id="@+id/textviewStepDetector"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Step Detector"
-        android:textSize="28"
+        android:textSize="28dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.277"

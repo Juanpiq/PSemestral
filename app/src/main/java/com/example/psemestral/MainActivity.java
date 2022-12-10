@@ -8,6 +8,7 @@ import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.view.View;
 import android.widget.RadioButton;
+import android.widget.RadioGroup;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -54,14 +55,15 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Activar (View view){
-        RadioButton rb1 = findViewById(R.id.rb1CP);
-        RadioButton rb2 = findViewById(R.id.rb2Px);
+        RadioButton rb1CP = findViewById(R.id.rb1CP);
+        RadioButton rb2Px = findViewById(R.id.rb2Px);
         RadioButton rb3 = findViewById(R.id.rb3);
-        if(rb1.isChecked()){
+
+        if(rb1CP.isChecked() == true){
             Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
         }
-        else if(rb2.isChecked()){
+        else if(rb2Px.isChecked() == true){
 
         }
         else {
