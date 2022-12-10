@@ -62,6 +62,7 @@ public class MainActivity extends AppCompatActivity {
         if(rb1CP.isChecked() == true){
             Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
+            //hola mundo;
         }
         else if(rb2Px.isChecked() == true){
 
