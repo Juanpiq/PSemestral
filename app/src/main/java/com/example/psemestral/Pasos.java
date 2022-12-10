@@ -58,12 +58,8 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
         }
     pb=findViewById(R.id.pb);
 
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            pb.setMin(0);
-            pb.setMax(10000);
 
-        }
-        pb.setProgress(stepCount);
+
 //----- fin del main
     }
 
@@ -72,6 +68,9 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
         if(sensorEvent.sensor==mStepCounter){
             stepCount=(int) sensorEvent.values[0];
             textViewStepCounter.setText (String.valueOf(stepCount));
+            pb.setMax(100000);
+            pb.setProgress(stepCount);
+
         }
     }
     @Override
