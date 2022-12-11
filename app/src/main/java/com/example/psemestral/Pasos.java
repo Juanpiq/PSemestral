@@ -75,7 +75,7 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
             pb.setProgress(stepCount);
             //tv1.setText("Meta");
             tv1.setText("Meta: " + (stepCount) +"/ 800");
-            tv2.setText("Calorias quemadas: " + (stepCount*0.04));
+            tv2.setText("Calorias quemadas: " + String.format("%.02f",stepCount*0.04));
         }
     }
     @Override
