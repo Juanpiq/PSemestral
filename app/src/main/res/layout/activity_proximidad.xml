@@ -9,11 +9,11 @@
     <TextView
         android:id="@+id/tvtitulo"
         android:layout_width="wrap_content"
-        android:layout_height="49dp"
+        android:layout_height="61dp"
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
-        android:layout_marginEnd="89dp"
-        android:layout_marginBottom="634dp"
+        android:layout_marginEnd="88dp"
+        android:layout_marginBottom="622dp"
         android:text="Proximity Detector"
         android:textSize="28sp" />
 

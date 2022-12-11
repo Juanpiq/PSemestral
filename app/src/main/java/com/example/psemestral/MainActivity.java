@@ -16,14 +16,21 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     String grabar;
-    Intent intent1, intent2;
+    Intent intent1, intent2, intent3;
+    RadioButton rb1CP;
+    RadioButton rb2Px;
+    RadioButton rb3;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        //grabar = findViewById(R.id.texto);
         intent1 = new Intent(getApplicationContext(), Pasos.class);
         intent2 = new Intent(getApplicationContext(), Proximidad.class);
+        intent3 = new Intent(getApplicationContext(), Magnetismo.class);
+
+        rb1CP = findViewById(R.id.rb1CP);
+        rb2Px = findViewById(R.id.rb2Px);
+        rb3 = findViewById(R.id.rb3);
     }
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     @Override
@@ -38,11 +45,18 @@ public class MainActivity extends AppCompatActivity {
                     grabar = strSpeech2Text;
                     if(grabar.equals("contador de pasos")) {
                         Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
+                        rb1CP.setChecked(true);
                         startActivity(intent1);
                     }
                     else if(grabar.equals("proximidad")) {
                         Toast.makeText(this, "Proximidad", Toast.LENGTH_SHORT).show();
+                        rb2Px.setChecked(true);
                         startActivity(intent2);
+                    }
+                    else if (grabar.equals("magnetismo")){
+                        Toast.makeText(this, "Magnetismo", Toast.LENGTH_SHORT).show();
+                        startActivity(intent3);
+                        rb3.setChecked(true);
                     }
                     else Toast.makeText(this, "Sensor no definido", Toast.LENGTH_SHORT).show();
                 }
@@ -62,10 +76,6 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void Activar (View view){
-        RadioButton rb1CP = findViewById(R.id.rb1CP);
-        RadioButton rb2Px = findViewById(R.id.rb2Px);
-        RadioButton rb3 = findViewById(R.id.rb3);
-
         if(rb1CP.isChecked() == true){
             Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
             startActivity(intent1);
@@ -76,7 +86,8 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent2);
         }
         else {
-
+            Toast.makeText(this, "Magnetismo", Toast.LENGTH_SHORT).show();
+            startActivity(intent3);
         }
     }
 }
