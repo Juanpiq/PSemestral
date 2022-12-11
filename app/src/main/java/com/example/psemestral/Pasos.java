@@ -20,6 +20,7 @@ import android.hardware.SensorEventListener;
 public class Pasos extends AppCompatActivity implements SensorEventListener {
     private TextView textViewStepCounter;
     private TextView textviewStepDetector;
+    public TextView tv1, tv2;
     private SensorManager sensorManager;
     private Sensor mStepCounter;
     private boolean isCounterSensorPresent;
@@ -65,12 +66,16 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
 
     @Override
     public void onSensorChanged(SensorEvent sensorEvent){
+        tv1 = findViewById(R.id.tv1);
+        tv2 = findViewById(R.id.tv2);
         if(sensorEvent.sensor==mStepCounter){
             stepCount=(int) sensorEvent.values[0];
             textViewStepCounter.setText (String.valueOf(stepCount));
-            pb.setMax(100000);
+            pb.setMax(8000);
             pb.setProgress(stepCount);
-
+            //tv1.setText("Meta");
+            tv1.setText("Meta: " + (stepCount) +"/ 800");
+            tv2.setText("Calorias quemadas: " + (stepCount*0.04));
         }
     }
     @Override
