@@ -16,13 +16,14 @@ import java.util.ArrayList;
 
 public class MainActivity extends AppCompatActivity {
     String grabar;
-    Intent intent1;
+    Intent intent1, intent2;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         //grabar = findViewById(R.id.texto);
         intent1 = new Intent(getApplicationContext(), Pasos.class);
+        intent2 = new Intent(getApplicationContext(), Proximidad.class);
     }
     private static final int RECOGNIZE_SPEECH_ACTIVITY = 1;
     @Override
@@ -35,9 +36,15 @@ public class MainActivity extends AppCompatActivity {
                             .getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
                     String strSpeech2Text = speech.get(0);
                     grabar = strSpeech2Text;
-                    if(grabar.equals("contador de pasos"))
+                    if(grabar.equals("contador de pasos")) {
                         Toast.makeText(this, "Contador de Pasos", Toast.LENGTH_SHORT).show();
-                    else Toast.makeText(this, "Sensor no definido", Toast.LENGTH_SHORT).show();;
+                        startActivity(intent1);
+                    }
+                    else if(grabar.equals("proximidad")) {
+                        Toast.makeText(this, "Proximidad", Toast.LENGTH_SHORT).show();
+                        startActivity(intent2);
+                    }
+                    else Toast.makeText(this, "Sensor no definido", Toast.LENGTH_SHORT).show();
                 }
                 break;
             default:
@@ -65,7 +72,8 @@ public class MainActivity extends AppCompatActivity {
             //hola mundo;
         }
         else if(rb2Px.isChecked() == true){
-
+            Toast.makeText(this, "Proximidad", Toast.LENGTH_SHORT).show();
+            startActivity(intent2);
         }
         else {
 
