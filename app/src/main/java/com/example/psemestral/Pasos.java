@@ -34,9 +34,7 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pasos);
 
-        if(ContextCompat.checkSelfPermission(this,
-
-                Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){ //ask for permission
+        if(ContextCompat.checkSelfPermission(this,Manifest.permission.ACTIVITY_RECOGNITION) == PackageManager.PERMISSION_DENIED){ //ask for permission
 
             requestPermissions(new String[]{Manifest.permission.ACTIVITY_RECOGNITION}, 0);
 
@@ -74,7 +72,7 @@ public class Pasos extends AppCompatActivity implements SensorEventListener {
             pb.setMax(8000);
             pb.setProgress(stepCount);
             //tv1.setText("Meta");
-            tv1.setText("Meta: " + (stepCount) +"/ 800");
+            tv1.setText("Meta: " + (stepCount) +"/ 8000");
             tv2.setText("Calorias quemadas: " + String.format("%.02f",stepCount*0.04));
         }
     }
